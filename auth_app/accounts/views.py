@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 
 from django.contrib import messages, auth
-from django.contrib.auth.decorators import login_required
 from accounts.forms import UserRegistrationForm, UserLoginForm
 from django.core.urlresolvers import reverse
 from django.shortcuts import render, redirect
@@ -10,6 +9,7 @@ from django.template.context_processors import csrf
 from django.conf import settings
 import datetime
 import stripe
+import arrow
 
 stripe.api_key = settings.STRIPE_SECRET
 
@@ -19,16 +19,16 @@ def register(request):
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             try:
-                customer = stripe.Charge.create(
-                    amount =999,
-                    currency="USD",
-                    description=form.cleaned_data['email'],
+                customer = stripe.Customer.create(
+                    email=form.cleaned_data['email'],
                     card=form.cleaned_data['stripe_id'],
+                    plan= 'REG_MONTHLY',
                 )
-                if customer.paid:
-                    form.save()
-                    user= auth.authenticate(email=request.POST.get('email'),
-                                            password=request.POST.get('password1'))
+                if customer:
+                    user = form.save()
+                    user.stripe_id = customer.id
+                    user.subscription_end = arrow.now().replace(weeks=+4).datetime
+                    user.save()
 
                     if user:
                         auth.login(request, user)
@@ -76,9 +76,18 @@ def login(request):
     return render(request, 'login.html', args)
 
 
+
+@login_required(login_url='/accounts/login/')
+def cancel_subscription(request):
+    try:
+        customer = stripe.Customer.retrieve(request.user.stripe_id)
+        customer.cancel_subscription(at_period_end=True)
+    except Exception, e:
+        messages.error(request, e)
+    return redirect('profile')
+
+
 def logout(request):
     auth.logout(request)
     messages.success(request, 'You have successfully logged out')
-    return render(request, 'index.html')
-
-
+    return redirect(reverse, 'index.html')
