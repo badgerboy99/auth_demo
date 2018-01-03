@@ -4,7 +4,7 @@ curl -H "Content-Type: application/json" -X POST -d '
     {
         "id": "in_1BfU3lJk1B60gCtP0PRzmeyR",
         "object": "invoice",
-        "amount_due": 999,
+        "amount_due": 299,
         "application_fee": null,
         "attempt_count": 1,
         "attempted": true,
@@ -37,7 +37,7 @@ curl -H "Content-Type: application/json" -X POST -d '
                     "plan": {
                         "id": "REG_MONTHLY_",
                         "object": "plan",
-                        "amount": 999,
+                        "amount": 299,
                         "created": 1456571797,
                         "currency": "gbp",
                         "interval": "month",
@@ -71,11 +71,11 @@ curl -H "Content-Type: application/json" -X POST -d '
         "starting_balance": 0,
         "statement_descriptor": null,
         "subscription": "sub_7z4Juj7UIkWOGV",
-        "subtotal": 999,
+        "subtotal": 299,
         "tax": null,
         "tax_percent": null,
-        "total": 999,
+        "total": 299,
         "webhooks_delivered_at": null
 
     }
-}' http://localhost:8000/subscriptions_webhook/
+}' http://127.0.0.1:8000/subscriptions_webhook/
