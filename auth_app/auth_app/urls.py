@@ -21,6 +21,7 @@ from django.contrib import admin
 from accounts import views as accounts_views
 from hello import views as hello_views
 from products import views as product_views
+from magazines import views as magazine_views
 
 
 urlpatterns = [

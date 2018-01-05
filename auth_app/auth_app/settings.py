@@ -41,9 +41,9 @@ INSTALLED_APPS = [
     'accounts',
     'django_forms_bootstrap',
     'paypal.standard.ipn',
+    'magazines',
     'paypal_store',
     'products',
-    'magazines',
 ]
 
 MIDDLEWARE = [
@@ -144,4 +144,4 @@ STRIPE_SECRET = os.getenv('STRIPE_SECRET', 'sk_test_2JXkenbkwl1swGpAtmx7LY4e')
 # PayPal settings
 SITE_URL = 'http://127.0.0.1:8000'
 PAYPAL_NOTIFY_URL = 'http://127.0.0.1/a-very-hard-to-guess-url/'
-PAYPAL_RECEIVER_EMAIL = 'jones.cdjones@gmail.com'
+PAYPAL_RECEIVER_EMAIL = 'jones,cdjones@gmail.com'
