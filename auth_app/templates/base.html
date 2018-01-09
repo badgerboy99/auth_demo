@@ -8,8 +8,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/cerulean/bootstrap.min.css">
+    <link rel = "stylesheet" href="{% static "css/blog.css" %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     {% block head_js %}{% endblock %}
 </head>
 <body>
@@ -20,6 +22,7 @@
            <li><a href="#">About</a></li>
            <li><a href="/products/">Products</a></li>
            <li><a href="/magazines/">Magazines</a></li>
+           <li><a href="/blog/">Our blog</a></li> <!-- from reusable_blog app-->
            <li><a href="#">Contact</a></li>
            {% if user.is_authenticated %}
                    <li><a href="{% url 'profile' %}">Profile</a></li>

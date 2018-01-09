@@ -25,7 +25,7 @@ SECRET_KEY = '&fxi26ng2o)i0+9ye6kxhzy$3#m5m51@cw$x-&+86jk@(a)@eh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '6f9e2bdd.ngrok.io']
 
 
 # Application definition
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'magazines',
     'paypal_store',
     'products',
+    'reusable_blog',
 ]
 
 MIDDLEWARE = [
@@ -143,5 +144,5 @@ STRIPE_SECRET = os.getenv('STRIPE_SECRET', 'sk_test_2JXkenbkwl1swGpAtmx7LY4e')
 
 # PayPal settings
 SITE_URL = 'http://127.0.0.1:8000'
-PAYPAL_NOTIFY_URL = 'http://127.0.0.1/a-very-hard-to-guess-url/'
-PAYPAL_RECEIVER_EMAIL = 'jones,cdjones@gmail.com'
+PAYPAL_NOTIFY_URL = 'http://http://6f9e2bdd.ngrok.io/a-very-hard-to-guess-url/'
+PAYPAL_RECEIVER_EMAIL = 'jones.cdjones@gmail.com'
