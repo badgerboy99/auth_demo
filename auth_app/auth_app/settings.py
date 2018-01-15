@@ -45,7 +45,12 @@ INSTALLED_APPS = [
     'paypal_store',
     'products',
     'reusable_blog',
+    'tinymce',
+    'emoticons',
+    'debug_toolbar'
 ]
+
+INTERNAL_IPS = ('127.0.0.1',)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -126,6 +131,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 AUTH_USER_MODEL = 'accounts.User'
 
@@ -146,3 +152,7 @@ STRIPE_SECRET = os.getenv('STRIPE_SECRET', 'sk_test_2JXkenbkwl1swGpAtmx7LY4e')
 SITE_URL = 'http://127.0.0.1:8000'
 PAYPAL_NOTIFY_URL = 'http://http://6f9e2bdd.ngrok.io/a-very-hard-to-guess-url/'
 PAYPAL_RECEIVER_EMAIL = 'jones.cdjones@gmail.com'
+
+#tinymce settings
+TINYMCE_JS_ROOT = os.path.join(BASE_DIR, 'static', 'js', 'tinymce', 'tinymce.min.js')
+

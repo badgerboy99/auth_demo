@@ -15,4 +15,4 @@ six==1.11.0
 stripe==1.75.3
 urllib3==1.22
 yarg==0.1.9
-git+https://github.com/badgerboy99/reusable_blog.git
+git+https://github.com/aaronsnig501/reusable-blog-app.git
