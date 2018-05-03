@@ -24,6 +24,8 @@
            <li><a href="/magazines/">Magazines</a></li>
            <li><a href="/blog/">Our blog</a></li> <!-- from reusable_blog app-->
            <li><a href="#">Contact</a></li>
+           <li><a href="/forum/">Forum</a></li>
+
            {% if user.is_authenticated %}
                    <li><a href="{% url 'profile' %}">Profile</a></li>
                    <li><a href="{% url 'logout' %}">Log Out</a></li>

@@ -37,17 +37,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hello',
-    'accounts',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
     'django_forms_bootstrap',
     'paypal.standard.ipn',
+    'hello',
+    'accounts',
     'magazines',
     'paypal_store',
     'products',
-    'reusable_blog',
+    # 'reusable_blog',
     'tinymce',
     'emoticons',
-    'debug_toolbar'
+    'disqus',
+    'debug_toolbar',
 ]
 
 INTERNAL_IPS = ('127.0.0.1',)
@@ -60,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'auth_app.urls'

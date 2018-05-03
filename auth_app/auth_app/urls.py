@@ -23,6 +23,9 @@ from hello import views as hello_views
 from products import views as product_views
 from magazines import views as magazine_views
 
+from threads import views as forum_views
+
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -39,5 +42,8 @@ urlpatterns = [
     url(r'^products/$', product_views.all_products),
     url(r'^magazines/$', magazine_views.all_magazines),
     url(r'^blog/', include('reusable_blog.urls')),
+    url(r'^forum/$', forum_views.forum),
+    url(r'^threads/(?P<subject_id>\d+)/$', forum_views.threads, name='threads'),
+    url(r'^new_thread/(?P<subject_id>\d+)/$', forum_views.new_thread, name='new_thread'),
 
 ]
