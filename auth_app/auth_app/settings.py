@@ -46,11 +46,12 @@ INSTALLED_APPS = [
     'magazines',
     'paypal_store',
     'products',
-    # 'reusable_blog',
+    'reusable_blog',
     'tinymce',
     'emoticons',
     'disqus',
     'debug_toolbar',
+    'threads',
 ]
 
 INTERNAL_IPS = ('127.0.0.1',)
