@@ -33,6 +33,8 @@ class User(AbstractUser):
     subscription_end = models.DateTimeField(default=timezone.now)
     """
 
+    stripe_id = models.CharField(max_length=40, default='')
+    subscription_end = models.DateTimeField(default=timezone.now)
     objects = AccountUserManager()
 
     def is_subscribed(self, magazine):
@@ -41,7 +43,4 @@ class User(AbstractUser):
         except Exception:
             return False
 
-        if purchase.subscription_end > timezone.now():
-            return False
-
-        return True
+        return purchase.subscription_end > timezone.now()
